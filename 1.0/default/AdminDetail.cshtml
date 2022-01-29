@@ -16,13 +16,14 @@
     var appThemeSystem = new AppThemeSystemLimpet(portalCatalog.SystemKey);
     var sessionParams = Model.SessionParamsData;
     var portalData = new PortalLimpet(portalCatalog.PortalId);
-    var appTheme = (AppThemeLimpet)Model.GetDataObject("apptheme"); 
+    var columns = "w3-col m12";
+    //Model.SetSetting("columns", columns); // columns for lists.
 }
 
 @AddProcessData("resourcepath", "/DesktopModules/DNNrocket/Images/App_LocalResources/")
 @AddProcessData("resourcepath", "/DesktopModules/DNNrocket/api/App_LocalResources/")
 @AddProcessData("resourcepath", "/DesktopModules/DNNrocketModules/RocketCatalog/App_LocalResources/")
-@AddProcessData("resourcepath", "/DesktopModules/RocketThemes/" + appTheme.AppThemeFolder + "/" + appTheme.AppVersionFolder + "/resx/")
+@AddProcessData("resourcepath", "/DesktopModules/RocketThemes/" + portalCatalog.Organisation + "/" + portalCatalog.AppThemeAdminFolder + "/" + portalCatalog.AppThemeAdminVersion + "/resx/")
 
 @RenderLanguageSelector("articleadmin_editarticle", "{\"articleid\":\"" + articleData.ArticleId + "\"}", appThemeSystem, Model)
 
@@ -35,62 +36,153 @@
             <div class="w3-button w3-theme-action simplisity_click savearticlebutton langchangesave" s-before="articlerichtextSave" s-cmd="articleadmin_savedata" s-post="#articledatasection" s-list=".@articleData.ImageListName,.@articleData.DocumentListName,.@articleData.LinkListName" s-fields='{"articleid":"@articleData.ArticleId"}'>@ButtonText(ButtonTypes.save)</div>
             @if (articleData.Exists)
             {
-                <div class="w3-button simplisity_confirmclick" s-confirm="@ResourceKey("DNNrocket.copy")&nbsp;?" s-cmd="articleadmin_copy" s-fields='{"articleid":"@info.ItemID"}'>@ButtonText(ButtonTypes.copy)</div>            }
-                    <div class="w3-button w3-right w3-margin-right w3-red simplisity_confirmclick" s-confirm="@ResourceKey("DNNrocket.delete","","confirm")" s-cmd="articleadmin_delete" s-fields='{"articleid":"@articleData.ArticleId"}'>@ButtonText(ButtonTypes.delete)</div>
-                </div>
+                <div class="w3-button simplisity_confirmclick" s-confirm="@ResourceKey("DNNrocket.copy")&nbsp;?" s-cmd="articleadmin_copy" s-fields='{"articleid":"@info.ItemID"}'>@ButtonText(ButtonTypes.copy)</div>            
+            }
+            <div class="w3-button w3-right w3-margin-right w3-red simplisity_confirmclick" s-confirm="@ResourceKey("DNNrocket.delete","","confirm")" s-cmd="articleadmin_delete" s-fields='{"articleid":"@articleData.ArticleId"}'>@ButtonText(ButtonTypes.delete)</div>
+        </div>
 
         <div id="articledatasection" class="">
             <div class='w3-row'>
-                <div class='w3-row'>
-                    <div class="w3-col m1 w3-padding">
-                        <label>@ResourceKey("RC.ref")</label>
-                        @TextBox(info, articleData.RefXPath, " class='w3-input w3-border' autocomplete='off' ", "", false, 0)
+                <div class="w3-twothird w3-padding-small">
+                    <div onclick="$('#generaltab').toggle();$('#generaltabexpand').toggle();" class="w3-button w3-block w3-theme-l3 w3-left-align">
+                        @ResourceKey("DNNrocket.general")
+                        <span id="generaltabexpand" class="material-icons w3-right" style="display:none;">
+                            unfold_more
+                        </span>
                     </div>
-                    <div class="w3-col m10 w3-padding">
-                        <label>@ResourceKey("RC.name")</label>&nbsp;@EditFlag(sessionParams)
-                        @TextBox(info, articleData.NameXPath, " class='w3-input w3-border' autocomplete='off' ", "", true, 0)
+                    <div id="generaltab" class='w3-row sectionname w3-border'>
+                        <div class='w3-row'>
+                            <div class="w3-col m2 w3-padding">
+                                <label>@ResourceKey("RC.ref")</label>
+                                @TextBox(info, articleData.RefXPath, " class='w3-input w3-border' autocomplete='off' ", "", false, 0)
+                            </div>
+                            <div class="w3-col m10 w3-padding">
+                                <label>@ResourceKey("RC.name")</label>&nbsp;@EditFlag(sessionParams)
+                                @TextBox(info, articleData.NameXPath, " class='w3-input w3-border' autocomplete='off' ", "", true, 0)
+                            </div>
+                        </div>
+                        <div class='w3-row'>
+                            <div class='w3-half'>
+                                <div class='w3-row w3-padding'>
+                                    <label>@ResourceKey("Theme.email")</label>
+                                    @TextBox(info, "genxml/textbox/email", " class='w3-input w3-border' autocomplete='off' ", "", false, 0)
+                                </div>
+                                <div class='w3-row w3-padding'>
+                                    <label>@ResourceKey("Theme.phone1")</label>
+                                    @TextBox(info, "genxml/textbox/phone1", " class='w3-input w3-border' autocomplete='off' ", "", false, 0)
+                                </div>
+                                <div class='w3-row w3-padding'>
+                                    <label>@ResourceKey("Theme.phone2")</label>
+                                    @TextBox(info, "genxml/textbox/phone2", " class='w3-input w3-border' autocomplete='off' ", "", false, 0)
+                                </div>
+                                <div class='w3-row w3-padding'>
+                                    <label>@ResourceKey("Theme.phone3")</label>
+                                    @TextBox(info, "genxml/textbox/phone3", " class='w3-input w3-border' autocomplete='off' ", "", false, 0)
+                                </div>
+                                <div class='w3-row w3-padding'>
+                                    <label>@ResourceKey("Theme.bestcontact")</label>
+                                    @{ var datatext = ResourceCSV("Theme.bestcontact", "phone1,email").ToString();}@if (datatext == "") { datatext = "phone1,email"; } 		@DropDownList(info, "genxml/select/bestcontact", "phone1,email", datatext, "class='w3-select w3-border' ", "", false, 0)
+                                </div>
+                            </div>
+                            <div class='w3-half'>
+                                <div class='w3-padding'>
+                                    <label>@ResourceKey("Theme.address1")</label>
+                                    @TextBox(info, "genxml/textbox/address1", " class='w3-input w3-border' autocomplete='off' ", "", false, 0)
+                                </div>
+                                <div class='w3-padding'>
+                                    <label>@ResourceKey("Theme.address2")</label>
+                                    @TextBox(info, "genxml/textbox/address2", " class='w3-input w3-border' autocomplete='off' ", "", false, 0)
+                                </div>
+                                <div class='w3-padding'>
+                                    <label>@ResourceKey("Theme.postcode")</label>
+                                    @TextBox(info, "genxml/textbox/postcode", " class='w3-input w3-border' autocomplete='off' ", "", false, 0)
+                                </div>
+                                <div class='w3-row w3-padding'>
+                                    <label>@ResourceKey("Theme.openingtimes")</label>
+                                    @TextArea(info, "genxml/textbox/opening", " class='w3-input w3-border' rows='6' ", "", false, 0)
+                                </div>
+                            </div>
+                        </div>
+                        <div class='w3-row'>
+                            <div class="w3-quarter w3-padding">
+                                @CheckBox(info, articleData.HiddenXPath, "&nbsp;" + ResourceKey("RC.hidden"), " class='w3-check' ")
+                            </div>
+                            <div class="w3-quarter w3-padding">
+                                @CheckBox(info, articleData.HiddenByCultureXPath, "&nbsp;" + ResourceKey("RC.hidden") + "&nbsp;" + EditFlag(sessionParams), " class='w3-check' ")
+                            </div>
+                        </div>
+                        <div class=" w3-row w3-padding">
+                            <label>@ResourceKey("RC.summary")</label>&nbsp;@EditFlag(sessionParams)
+                            @TextArea(info, articleData.SummaryXPath, " class='w3-input w3-border' rows='8' autocomplete='off' ", "", true, 0)
+                        </div>
                     </div>
-                    <div class="w3-col m1 w3-padding">
-                        <label>@ResourceKey("Theme.price")</label>
-                        @TextBox(info, "genxml/textbox/price", " class='w3-input w3-border w3-right-align' autocomplete='off' ", "", false, 0)
+
+                    <div class="w3-row">
+                        <div onclick="$('#map').toggle();$('#mapexpand').toggle();" class="w3-button w3-block w3-theme-l3 w3-left-align w3-margin-top">
+                            @ResourceKey("DNNrocket.map")
+                            <span id="mapexpand" class="material-icons w3-right" style="display:none;">
+                                unfold_more
+                            </span>
+                        </div>
+                        <div id="map" class='w3-row sectionname w3-border w3-padding' style="">
+                            <div class='w3-row'>
+                                <div class='w3-col m6 w3-padding'>
+                                    <label>@ResourceKey("Theme.long")</label>
+                                    @TextBox(info, "genxml/textbox/long", " class='w3-input w3-border' autocomplete='off' disabled ", "", false, 0)
+                                </div>
+                                <div class='w3-col m6 w3-padding'>
+                                    <label>@ResourceKey("Theme.lat")</label>
+                                    @TextBox(info, "genxml/textbox/lat", " class='w3-input w3-border' autocomplete='off' disabled ", "", false, 0)
+                                </div>
+                            </div>
+                            <div class='w3-row'>
+                                <div style='color:red;'><b>@ResourceKey("Theme.mapmsg")</b></div>
+                                <label class=""></label>
+                                <div id="leafletmapselect" style="height:500px" class="w3-light-grey"></div>
+
+                            </div>
+                        </div>
                     </div>
+
                 </div>
+                <div class="w3-third w3-padding-small">
 
-                <div class=" w3-row w3-padding">
-                    <label>@ResourceKey("RC.summary")</label>&nbsp;@EditFlag(sessionParams)
-                    @TextArea(info, articleData.SummaryXPath, " class='w3-input w3-border' rows='8' autocomplete='off' ", "", true, 0)
-                </div>
-
-                <div class='w3-row'>
-                    <div class="w3-quarter w3-padding">
-                        @CheckBox(info, articleData.HiddenXPath, "&nbsp;" + ResourceKey("RC.hidden"), " class='w3-check' ")
+                    <div onclick="$('#categoriestab').toggle();$('#categoriestabexpand').toggle();" class="w3-button w3-block w3-theme-l3 w3-left-align">
+                        @ResourceKey("RC.categories")
+                        <span id="categoriestabexpand" class="material-icons w3-right" style="display:none;">
+                            unfold_more
+                        </span>
                     </div>
-                    <div class="w3-quarter w3-padding">
-                        @CheckBox(info, articleData.HiddenByCultureXPath, "&nbsp;" + ResourceKey("RC.hidden") + "&nbsp;" + EditFlag(sessionParams), " class='w3-check' ")
-                    </div>
-                </div>
-
-                <div class="w3-padding">
-                    <div class="w3-bar-item w3-button tablink categoriestabtablink" onclick="openSection('categoriestab')">@ResourceKey("RC.categories")</div>
-                    <div class="w3-bar-item w3-button tablink imgstablink" onclick="openSection('imgs')">@ResourceKey("DNNrocket.images")</div>
-                    <div class="w3-bar-item w3-button tablink docstablink" onclick="openSection('docs')">@ResourceKey("DNNrocket.docs")</div>
-                    <div class="w3-bar-item w3-button tablink linkstablink" onclick="openSection('links')">@ResourceKey("DNNrocket.links")</div>
-                </div>
-
-                <div class="w3-padding">
-
-                    <div id="categoriestab" class='w3-row sectionname a-articlecategorylist' style="display:none">
+                    <div id="categoriestab" class='w3-row sectionname a-articlecategorylist w3-border w3-padding' style="">
                         @RenderTemplate("ArticleCategoryList.cshtml", appThemeSystem, Model, true)
                     </div>
-                    <div id="imgs" class='w3-row sectionname' style="display:none">
+                    <div onclick="$('#imgs').toggle();$('#imgsexpand').toggle();" class="w3-button w3-block w3-theme-l3 w3-left-align w3-margin-top">
+                        @ResourceKey("DNNrocket.images")
+                        <span id="imgsexpand" class="material-icons w3-right" style="display:none;">
+                            unfold_more
+                        </span>
+                    </div>
+                    <div id="imgs" class='w3-row sectionname w3-border w3-padding' style="">
                         @RenderTemplate("Articleimages.cshtml", appThemeSystem, Model, true)
-                        @RenderTemplate("ArticleimageSelect.cshtml", appThemeSystem, Model, true)
                     </div>
-                    <div id="docs" class='w3-row sectionname' style="display:none">
+                    @RenderTemplate("ArticleimageSelect.cshtml", appThemeSystem, Model, true)
+                    <div onclick="$('#docs').toggle();$('#docsexpand').toggle();" class="w3-button w3-block w3-theme-l3 w3-left-align w3-margin-top">
+                        @ResourceKey("DNNrocket.docs")
+                        <span id="docsexpand" class="material-icons w3-right" style="display:none;">
+                            unfold_more
+                        </span>
+                    </div>
+                    <div id="docs" class='w3-row sectionname w3-border w3-padding' style="">
                         @RenderTemplate("ArticleDocuments.cshtml", appThemeSystem, Model, true)
-                        @RenderTemplate("ArticleDocumentSelect.cshtml", appThemeSystem, Model, true)
                     </div>
-                    <div id="links" class='w3-row sectionname' style="display:none">
+                    @RenderTemplate("ArticleDocumentSelect.cshtml", appThemeSystem, Model, true)
+                    <div onclick="$('#links').toggle();$('#linksexpand').toggle();" class="w3-button w3-block w3-theme-l3 w3-left-align w3-margin-top">
+                        @ResourceKey("DNNrocket.links")
+                        <span id="linksexpand" class="material-icons w3-right" style="display:none;">
+                            unfold_more
+                        </span>
+                    </div>
+                    <div id="links" class='w3-row sectionname w3-border w3-padding' style="">
                         @RenderTemplate("ArticleLinks.cshtml", appThemeSystem, Model, true)
                     </div>
 
@@ -101,11 +193,12 @@
         <div class="w3-padding">
             @if (UserUtils.IsInRole("Administrator"))
             {
-<div class="w3-container">
-    <div class="w3-right">
-        @RenderXml(info)
-    </div>
-</div>            }
+                <div class="w3-container">
+                    <div class="w3-right">
+                        @RenderXml(info)
+                    </div>
+                </div>            
+            }
             <i>ID: </i> @info.ItemID <i> GuidKey:</i> @info.GUIDKey
         </div>
 
@@ -114,51 +207,74 @@
 </div>
 
 <script>
+
     $(document).ready(function () {
-        var sectionName = simplisity_getCookieValue('sectionName');
-        if ((typeof sectionName === 'undefined') || sectionName === '') {
-            sectionName = 'categoriestab';
-        }
-
-        $("#price").keydown(function (e) {
-            // Allow: backspace, delete, tab, escape, enter and .
-            if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190, 188]) !== -1 ||
-                // Allow: Ctrl/cmd+A
-                (e.keyCode == 65 && (e.ctrlKey === true || e.metaKey === true)) ||
-                // Allow: Ctrl/cmd+C
-                (e.keyCode == 67 && (e.ctrlKey === true || e.metaKey === true)) ||
-                // Allow: Ctrl/cmd+X
-                (e.keyCode == 88 && (e.ctrlKey === true || e.metaKey === true)) ||
-                // Allow: home, end, left, right
-                (e.keyCode >= 35 && e.keyCode <= 39)) {
-                // let it happen, don't do anything
-                return;
-            }
-            // Ensure that it is a number and stop the keypress
-            if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
-                e.preventDefault();
-            }
-        });
-
-
-        openSection(sectionName);
+        simplisity_injectlink('https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.3/leaflet.css');
+        simplisity_injectscript('https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.3/leaflet.js');
+		setTimeout(() => {  simplisity_injectscript('https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js'); }, 1000);
+		setTimeout(() => {  initmap(); }, 1000);
     });
 
-    function openSection(sectionName) {
-        var i, x, tablinks;
-        x = document.getElementsByClassName("sectionname");
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
+    function markerFunction(id) {
+        for (var i in markers) {
+            var markerID = markers[i].options.title;
+            if (markerID == id) {
+                markers[i].openPopup();
+            };
         }
-        $(".tablink").each(function (index) {
-            $(this).removeClass('w3-bottombar');
+    }
+
+    function initmap() {
+
+        @{
+            var gpslong = info.GetXmlProperty("genxml/textbox/long").Replace("'", "");
+            var gpslat = info.GetXmlProperty("genxml/textbox/lat").Replace("'", "");
+            var companyname = info.GetXmlProperty("genxml/textbox/companyname").Replace("'", "-");
+            var txtdata = "";
+        }
+
+        var x = '@gpslat';
+        var y = '@gpslong';
+        var marker = "";
+        var companyname = '@companyname';
+        var map = "";
+        if (x != '' && y != '') {
+            map = L.map('leafletmapselect', {minZoom: 3}).setView([x, y], 13);
+            marker = L.marker([x, y], { title: companyname });
+            map.addLayer(marker);
+        }
+        else {
+            map = L.map('leafletmapselect', {minZoom: 3}).setView([43.958450,2.885300], 13);
+        }
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        //L.tileLayer('https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png', {
+        //    attribution: '<a href="https://wikimediafoundation.org/wiki/Maps_Terms_of_Use">Wikimedia</a>',
+        //}).addTo(map);
+
+
+        var lat, lng;
+
+        map.addEventListener('mousemove', function (ev) {
+            lat = ev.latlng.lat;
+            lng = ev.latlng.lng;
         });
 
-        document.getElementById(sectionName).style.display = "block";
+        $("#leafletmapselect").unbind("dblclick");
+        $("#leafletmapselect").dblclick(function (event) {
+            $('#lat').val(lat.toFixed(6));
+            $('#long').val(lng.toFixed(6));
+            if (marker !== "") {
+                map.removeLayer(marker)
+            }
+            marker = L.marker([lat, lng], { title: companyname });
+            map.addLayer(marker);
 
-        $('.' + sectionName + 'tablink').addClass('w3-bottombar');
+            return false; // To disable default popup.
+        });
 
-        simplisity_setCookieValue('sectionName', sectionName);
     }
 
 </script>

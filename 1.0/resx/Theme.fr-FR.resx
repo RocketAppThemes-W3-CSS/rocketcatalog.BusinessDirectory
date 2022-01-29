@@ -129,4 +129,109 @@
   <data name="categories.Text" xml:space="preserve">
     <value>Catégories</value>
   </data>
+  <data name="address1.Text" xml:space="preserve">
+    <value>Adresse</value>
+  </data>
+  <data name="address2.Text" xml:space="preserve">
+    <value>Adresse - Ne pas utiliser</value>
+  </data>
+  <data name="bestcontact-email.Text" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="bestcontact-phone1.Text" xml:space="preserve">
+    <value>T&amp;#233;l&amp;#233;phone 1</value>
+  </data>
+  <data name="bestcontact.Text" xml:space="preserve">
+    <value>Pr&amp;#233;f&amp;#233;rence de contact</value>
+  </data>
+  <data name="close1.Text" xml:space="preserve">
+    <value>Fermeture matin</value>
+  </data>
+  <data name="close2.Text" xml:space="preserve">
+    <value>Fermeture apr&amp;#232;s-midi</value>
+  </data>
+  <data name="companyname.Text" xml:space="preserve">
+    <value>Nom de l’entreprise</value>
+  </data>
+  <data name="docs.Text" xml:space="preserve">
+    <value> Documents PDF</value>
+  </data>
+  <data name="email.Text" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="extra.Text" xml:space="preserve">
+    <value>D&amp;#233;tails suppl&amp;#233;mentaires</value>
+  </data>
+  <data name="img.Text" xml:space="preserve">
+    <value>Logo</value>
+  </data>
+  <data name="lat.Text" xml:space="preserve">
+    <value>Latitude</value>
+  </data>
+  <data name="links.Text" xml:space="preserve">
+    <value>Liens</value>
+  </data>
+  <data name="long.Text" xml:space="preserve">
+    <value>Longitude</value>
+  </data>
+  <data name="onlineurl.Text" xml:space="preserve">
+    <value>Lien commande en ligne</value>
+  </data>
+  <data name="open1.Text" xml:space="preserve">
+    <value>Ouverture matin</value>
+  </data>
+  <data name="open2.Text" xml:space="preserve">
+    <value>Ouverture apr&amp;#232;s-midi</value>
+  </data>
+  <data name="orderonline.Text" xml:space="preserve">
+    <value>Commandez en ligne</value>
+  </data>
+  <data name="orderspossible-collect.Text" xml:space="preserve">
+    <value>Collection possible</value>
+  </data>
+  <data name="orderspossible-deliver.Text" xml:space="preserve">
+    <value>Livraison possible</value>
+  </data>
+  <data name="orderspossible-open.Text" xml:space="preserve">
+    <value>Ouvert</value>
+  </data>
+  <data name="orderspossible.Text" xml:space="preserve">
+    <value>Fonctionnement et services propos&amp;#233;s</value>
+  </data>
+  <data name="phone1.Text" xml:space="preserve">
+    <value>T&amp;#233;l&amp;#233;phone 1</value>
+  </data>
+  <data name="phone2.Text" xml:space="preserve">
+    <value>T&amp;#233;l&amp;#233;phone 2</value>
+  </data>
+  <data name="phone3.Text" xml:space="preserve">
+    <value>T&amp;#233;l&amp;#233;phone 3</value>
+  </data>
+  <data name="postcode.Text" xml:space="preserve">
+    <value>Code postal et ville</value>
+  </data>
+  <data name="type-alimentaire.Text" xml:space="preserve">
+    <value>Alimentaire</value>
+  </data>
+  <data name="type-finance.Text" xml:space="preserve">
+    <value>Finances</value>
+  </data>
+  <data name="type-sante.Text" xml:space="preserve">
+    <value>Sant&amp;#233;</value>
+  </data>
+  <data name="type-tabac.Text" xml:space="preserve">
+    <value>Tabac</value>
+  </data>
+  <data name="type-transport.Text" xml:space="preserve">
+    <value>Transport</value>
+  </data>
+  <data name="type.Text" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="website.Text" xml:space="preserve">
+    <value>Site Web</value>
+  </data>
+  <data name="mapmsg.Text" xml:space="preserve">
+    <value>PENSEZ A POSITIONNER VOTRE POINT SUR CETTE CARTE POUR APPARAITRE SUR LA CARTE DU SITE (ZOOMER PUIS DOUBLE-CLIQUER POUR PLACER / DEPLACER LA VIGNETTE)</value>
+  </data>
 </root>
