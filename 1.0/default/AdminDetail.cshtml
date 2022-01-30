@@ -72,16 +72,8 @@
                                     @TextBox(info, "genxml/textbox/phone1", " class='w3-input w3-border' autocomplete='off' ", "", false, 0)
                                 </div>
                                 <div class='w3-row w3-padding'>
-                                    <label>@ResourceKey("Theme.phone2")</label>
-                                    @TextBox(info, "genxml/textbox/phone2", " class='w3-input w3-border' autocomplete='off' ", "", false, 0)
-                                </div>
-                                <div class='w3-row w3-padding'>
-                                    <label>@ResourceKey("Theme.phone3")</label>
-                                    @TextBox(info, "genxml/textbox/phone3", " class='w3-input w3-border' autocomplete='off' ", "", false, 0)
-                                </div>
-                                <div class='w3-row w3-padding'>
-                                    <label>@ResourceKey("Theme.bestcontact")</label>
-                                    @{ var datatext = ResourceCSV("Theme.bestcontact", "phone1,email").ToString();}@if (datatext == "") { datatext = "phone1,email"; } 		@DropDownList(info, "genxml/select/bestcontact", "phone1,email", datatext, "class='w3-select w3-border' ", "", false, 0)
+                                    <label>@ResourceKey("Theme.website")</label>
+                                    @TextBox(info, "genxml/textbox/website", " class='w3-input w3-border' autocomplete='off' ", "", false, 0)
                                 </div>
                             </div>
                             <div class='w3-half'>
