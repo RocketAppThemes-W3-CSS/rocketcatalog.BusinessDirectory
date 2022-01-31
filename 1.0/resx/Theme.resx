@@ -126,11 +126,8 @@
   <data name="categories.Text" xml:space="preserve">
     <value>Categories</value>
   </data>
-  <data name="address1.Text" xml:space="preserve">
-    <value>Address1</value>
-  </data>
-  <data name="address2.Text" xml:space="preserve">
-    <value>Address2</value>
+  <data name="address.Text" xml:space="preserve">
+    <value>Address</value>
   </data>
   <data name="bestcontact-email.Text" xml:space="preserve">
     <value>E-mail</value>
@@ -233,5 +230,26 @@
   </data>
   <data name="mapmsg.Text" xml:space="preserve">
     <value>FIND THE POSITION ON THE MAP AND DOUBLE CLICK TO UPDATE THE LONGITUDE AND LATITUDE.</value>
+  </data>
+  <data name="afternoon.Text" xml:space="preserve">
+    <value>Afternoon</value>
+  </data>
+  <data name="close.Text" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="day.Text" xml:space="preserve">
+    <value>Day</value>
+  </data>
+  <data name="morning.Text" xml:space="preserve">
+    <value>Morning</value>
+  </data>
+  <data name="open.Text" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="opentimes.Text" xml:space="preserve">
+    <value>Opening Times</value>
+  </data>
+  <data name="summary.Text" xml:space="preserve">
+    <value>Summary</value>
   </data>
 </root>

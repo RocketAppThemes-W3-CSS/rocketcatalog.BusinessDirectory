@@ -1,0 +1,149 @@
+﻿
+
+<div class="w3-row w3-animate-opacity">
+
+    <h1>{{article this "name"}}</h1>
+
+    <div class="w3-row w3-padding w3-margin-top w3-margin-bottom">{{article this "summary"}}</div>
+
+    <div class="w3-row w3-padding">
+        <div class="w3-col m3" style="width:90px">
+            <span class="material-icons w3-jumbo">
+                schedule
+            </span>
+        </div>
+        <div class="w3-col m9">
+            <div>Mardi: 8h30/12h 14h/18h30 <br>Jeudi: 8h30/12 h 14h/18h30 <br>Vendredi: 8h30/12h30 <br>Samedi: 8h30/12h30</div>
+        </div>
+    </div>
+
+    <div class="w3-row w3-padding">
+        <div class="ordersitem"><i class="fas fa-check"></i>Ouvert au public</div>
+    </div>
+
+    <div class="w3-row w3-padding">
+        <h3>Contact / Accès</h3>
+        <div class="w3-row">
+            <div class="w3-col m3">
+                <img class="imgrollovertarget" alt="{{article this "name"}}" src="{{article this "imageurl" 0 180 180}}" style="width:180px;">
+            </div>
+            <div class="w3-col m9">
+                <p>
+                    <strong>{{article this "name"}}</strong><br />
+                    {{genxml.data.genxml.textbox.address1}}<br />
+                    {{genxml.data.genxml.textbox.address2}}<br />
+                    {{genxml.data.genxml.textbox.address3}}<br />
+                    {{genxml.data.genxml.textbox.address4}}<br />
+                </p>
+                <p>
+                </p><div>
+                    Tél. 05 65 49 72 58
+                </div>
+                <div>
+                    E-mail :
+                    <script type="text/javascript">document.write(String.fromCharCode(60, 97, 32, 104, 114, 101, 102, 61, 34, 109, 97, 105, 108, 116, 111, 58, 115, 97, 105, 110, 116, 46, 97, 102, 102, 114, 105, 113, 117, 101, 64, 97, 117, 100, 105, 108, 97, 98, 46, 102, 114, 34, 62, 115, 97, 105, 110, 116, 46, 97, 102, 102, 114, 105, 113, 117, 101, 64, 97, 117, 100, 105, 108, 97, 98, 46, 102, 114, 60, 47, 97, 62))</script><a href="mailto:saint.affrique@audilab.fr">saint.affrique@audilab.fr</a>
+                </div>
+                <div>
+                    Préférence de contact : Par e-mail
+                </div>
+
+                <br>
+                <p></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-row">
+        <div class="w3-row">
+            <h5>Social Networks</h5>
+        </div>
+        <div class="w3-col m2 w3-padding">
+            <a href="" target="_blank">
+                <img style="width: 40px;" class="w3-circle w3-grey w3-grayscale-max" src="{{genxml.sessionparams.r.engineurl}}/DesktopModules/RocketThemes/RocketAppThemes-W3-CSS/rocketcatalog.BusinessDirectory/1.0/img/youtube.png" />
+                <span>YouTube</span>
+            </a>
+        </div>
+        <div class="w3-col m2 w3-padding">
+            <a href="" target="_blank">
+                <img style="width:40px;" class="w3-circle w3-grey w3-grayscale-max" src="{{genxml.sessionparams.r.engineurl}}/DesktopModules/RocketThemes/RocketAppThemes-W3-CSS/rocketcatalog.BusinessDirectory/1.0/img/linkedin.png" />
+                <span>LinkedIn</span>
+            </a>
+        </div>
+        <div class="w3-col m2 w3-padding">
+            <a href="" target="_blank">
+                <img style="width:40px;" class="w3-circle w3-grey w3-grayscale-max" src="{{genxml.sessionparams.r.engineurl}}/DesktopModules/RocketThemes/RocketAppThemes-W3-CSS/rocketcatalog.BusinessDirectory/1.0/img/instagram.png" />
+                <span>Instagram</span>
+            </a>
+        </div>
+        <div class="w3-col m2 w3-padding">
+            <a href="" target="_blank">
+                <img style="width:40px;" class="w3-circle w3-grey w3-grayscale-max" src="{{genxml.sessionparams.r.engineurl}}/DesktopModules/RocketThemes/RocketAppThemes-W3-CSS/rocketcatalog.BusinessDirectory/1.0/img/twitter.png" />
+                <span>Twitter</span>
+            </a>
+        </div>
+        <div class="w3-col m2 w3-padding">
+            <a href="" target="_blank">
+                <img style="width:40px;" class="w3-circle w3-grey w3-grayscale-max" src="{{genxml.sessionparams.r.engineurl}}/DesktopModules/RocketThemes/RocketAppThemes-W3-CSS/rocketcatalog.BusinessDirectory/1.0/img/facebook.png" />
+                <span>Facebook</span>
+            </a>
+        </div>
+    </div>
+
+    <section class="detailslinks">
+        <h3>Liens</h3>
+        <div id="linklistcontainer">
+            <div class="">
+                <a href="https://www.audilab.fr/" target="'_blank'">Site Internet</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="detailsdocs">
+        <div id="documentlistcontainer">
+        </div>
+    </section>
+
+    <div class="w3-row">
+        <div id="leafletmap" style="height:300px" class="w3-light-grey"></div>
+    </div>
+
+</div>
+
+    <script>
+
+        $(document).ready(function () {
+
+            setTimeout(() => { initmap(); }, 500);
+
+        });
+
+
+    function initmap() {
+
+        var x = '{{genxml.data.genxml.textbox.lat}}';
+        var y = '{{genxml.data.genxml.textbox.long}}';
+        var defaultLat = '{{genxml.remotemodule.genxml.settings.lat}}';
+        var defaultLong = '{{genxml.remotemodule.genxml.settings.long}}';
+        var companyname = '{{genxml.data.genxml.textbox.companyname}}';
+        var marker = "";
+        var map = "";
+        if (x != '' && y != '') {
+            map = L.map('leafletmap', { minZoom: 3 }).setView([x, y], 13);
+            marker = L.marker([x, y], { title: companyname });
+            map.addLayer(marker);
+        }
+        else {
+            map = L.map('leafletmap', { minZoom: 3 }).setView([defaultLat, defaultLong], 13);
+        }
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+    }
+
+
+    </script>
+
+    {{ displayData this}}
+

@@ -22,7 +22,23 @@
     hbsDict.Add("sessionparams", sessionParams.Info);
     hbsDict.Add("resxlist", RenderRazorUtils.GetResxPaths(Processdata));
     hbsDict.Add("data", articleData.Info);
+    hbsDict.Add("remotemodule", new SimplisityInfo(remoteModule.Record));
 
+    var catList = new SimplisityInfo();
+    foreach(var c in articleData.GetCategories())
+    {
+        var catInfo = new SimplisityInfo();
+        catInfo.SetXmlProperty("genxml/itemid", c.CategoryId.ToString());
+        catInfo.SetXmlProperty("genxml/name", c.Name);
+        catInfo.SetXmlProperty("genxml/level", c.Level.ToString());
+        catInfo.SetXmlProperty("genxml/url", c.CategoryUrl(sessionParams));
+        catInfo.SetXmlProperty("genxml/summary", c.Summary);
+        catInfo.SetXmlProperty("genxml/logourl", portalData.EngineUrlWithProtocol.Trim('/') + "/" +  c.LogoRelPath);
+        catList.AddListItem("categories", catInfo);
+    }
+    hbsDict.Add("categories", catList);
+
+    var appThemeDefault = new AppThemeLimpet(articleData.PortalId, "rocketcatalog.BusinessDirectory", "1.0", appTheme.Organisation);
 }
 
 @AddProcessData("resourcepath", "/DesktopModules/RocketThemes/" + appTheme.AppThemeFolder + "/" + appTheme.AppVersionFolder + "/resx/")
@@ -32,5 +48,5 @@
 
 <div class="w3-row">
     <div onclick="window.history.back()" class="w3-button" style="float:right;" title="@articleData.Name">@ButtonText(ButtonTypes.back, sessionParams.CultureCode)</div>
-    @RenderHandleBarsRC(hbsDict, appTheme, "productdetail.hbs", remoteModule.ModuleRef, "")
+    @RenderHandleBarsRC(hbsDict, appThemeDefault, "articledetail.hbs", remoteModule.ModuleRef, "")
 </div>
