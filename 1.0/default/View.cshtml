@@ -9,11 +9,11 @@
         var articleData = (ArticleLimpet)Model.GetDataObject("articledata");
         if (articleData != null)
         {
-            @RenderTemplate("ProductDetail.cshtml", appTheme, Model, true)
+            @RenderTemplate("ArticleDetail.cshtml", appTheme, Model, true)
         }
         else
         {
-            @RenderTemplate("ProductList.cshtml", appTheme, Model, true)
+            @RenderTemplate("ArticleList.cshtml", appTheme, Model, true)
         }
     }
 </div>

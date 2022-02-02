@@ -255,4 +255,7 @@
   <data name="socialnet.Text" xml:space="preserve">
     <value>Social Networks</value>
   </data>
+  <data name="documents.Text" xml:space="preserve">
+    <value>Documents</value>
+  </data>
 </root>

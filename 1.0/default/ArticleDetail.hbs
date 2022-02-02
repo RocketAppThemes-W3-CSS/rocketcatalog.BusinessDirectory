@@ -1,6 +1,17 @@
 ﻿
 
 <div class="w3-row w3-animate-opacity">
+    {{#IsInCategory genxml.data.genxml.column.itemid "ref1"}}
+    <h1>You're in it.</h1>
+    {{else}}
+    <h1>You're NOT in it.</h1>
+    {{/IsInCategory}}
+
+    {{#HasProperty genxml.data.genxml.column.itemid "111"}}
+    <h1>You're in Property. </h1>
+    {{else}}
+    <h1>You're NOT in Property.</h1>
+    {{/HasProperty}}
 
     <h1>{{article this "name"}}</h1>
 
@@ -27,6 +38,7 @@
             <div class="w3-col m3">
                 <img class="imgrollovertarget" alt="{{article this "name"}}" src="{{article this "imageurl" 0 180 180}}" style="width:180px;">
             </div>
+
             <div class="w3-col m9">
                 <p>
                     <strong>{{article this "name"}}</strong><br />
@@ -104,35 +116,36 @@
 
     </div>
 
-    <section class="detailslinks">
-        <h3>Liens</h3>
-        <div id="linklistcontainer">
-            {{#each genxml.data.genxml.linklist.genxml}}
-
-            {{test @root "wtf"}}
-            <div>
-                LINK: {{@index}}  {{article @root "linkllisturl" @index "textbox.externallinkarticlelink" "textbox.anchorarticlelink"}}
+    <div class="w3-row">
+        <div class="w3-half w3-padding">
+            <h3>{{resourcekey this "Theme.links"}}</h3>
+            <div id="linklistcontainer w3-padding">
+                {{#each genxml.data.genxml.linklist.genxml}}
+                <div class="w3-row">
+                    {{#when checkbox.hidearticlelink "noteq" "true"}}
+                    {{#when checkbox.blankarticlelink "eq" "true"}}
+                    <a target="_blank" href="{{article @root "linkurl" @index}}" class="w3-bar-item w3-button">{{article @root "linkname" @index}}</a>
+                    {{/when}}
+                    {{#when checkbox.blankarticlelink "noteq" "true"}}
+                    <a href="{{article @root "linkurl" @index}}" class="w3-bar-item w3-button">{{article @root "linkname" @index}}</a>
+                    {{/when}}
+                    {{/when}}
+                </div>
+                {{/each}}
             </div>
-            <div>{{article @root "name"}}</div>
-
-            {{#when checkbox.hidearticlelink "noteq" "true"}}
-            {{#when checkbox.blankarticlelink "eq" "true"}}
-            <a target="_blank" href="{{lookuplang @root "linklist" "textbox.externallinkarticlelink" @index}}#{{lookuplang @root "linklist" "textbox.anchorarticlelink" @index}}" class="w3-bar-item w3-button">{{lookuplang @root "linklist" "textbox.namearticlelink" @index}}</a>
-            {{/when}}
-            {{#when checkbox.blankarticlelink "noteq" "true"}}
-            <a href="{{lookuplang @root "linklist" "textbox.externallinkarticlelink" @index}}#{{lookuplang @root "linklist" "textbox.anchorarticlelink" @index}}" class="w3-bar-item w3-button">{{lookuplang @root "linklist" "textbox.namearticlelink" @index}}</a>
-            {{/when}}
-            {{/when}}
-
-            {{/each}}
-
         </div>
-    </section>
-
-    <section class="detailsdocs">
-        <div id="documentlistcontainer">
+        <div class="w3-half">
+            <h3>{{resourcekey this "Theme.documents"}}</h3>
+            <div id="linklistcontainer w3-padding">
+                {{#each genxml.data.genxml.documentlist.genxml}}
+                <div class="w3-row">
+                    <a target="_blank" href="{{article @root "docurl" @index}}" class="w3-bar-item w3-button">{{article @root "docname" @index}}</a>
+                </div>
+                {{/each}}
+            </div>
         </div>
-    </section>
+    </div>
+
 
     <div class="w3-row">
         <div id="leafletmap" style="height:300px" class="w3-light-grey"></div>
@@ -176,5 +189,5 @@
 
     </script>
 
-    {{ displayData this}}
+    {{! displayData this}}
 

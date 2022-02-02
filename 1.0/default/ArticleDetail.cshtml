@@ -6,10 +6,7 @@
 @using DNNrocketAPI.Components;
 @using System.Globalization;
 
-@AddProcessData("resourcepath", "/DesktopModules/DNNrocket/api/App_LocalResources/")
-@AddProcessData("resourcepath", "/DesktopModules/DNNrocketModules/RocketCatalog/App_LocalResources/")
-
-@{ 
+@{
     var sessionParams = (SessionParams)Model.SessionParamsData;
     var articleData = (ArticleLimpet)Model.GetDataObject("articledata");
     var portalCatalog = (PortalCatalogLimpet)Model.GetDataObject("portalcatalog");
@@ -17,31 +14,21 @@
     var portalData = (PortalLimpet)Model.GetDataObject("portaldata");
     var categoryList = (CategoryLimpetList)Model.GetDataObject("categorylist");
     var appTheme = (AppThemeLimpet)Model.GetDataObject("apptheme");
+    var appThemeDefault = new AppThemeLimpet(articleData.PortalId, "rocketcatalog.BusinessDirectory", "1.0", appTheme.Organisation);
 
     var hbsDict = new Dictionary<string, SimplisityInfo>();
     hbsDict.Add("sessionparams", sessionParams.Info);
-    hbsDict.Add("resxlist", RenderRazorUtils.GetResxPaths(Processdata));
     hbsDict.Add("data", articleData.Info);
     hbsDict.Add("remotemodule", new SimplisityInfo(remoteModule.Record));
-
-    var catList = new SimplisityInfo();
-    foreach(var c in articleData.GetCategories())
-    {
-        var catInfo = new SimplisityInfo();
-        catInfo.SetXmlProperty("genxml/itemid", c.CategoryId.ToString());
-        catInfo.SetXmlProperty("genxml/name", c.Name);
-        catInfo.SetXmlProperty("genxml/level", c.Level.ToString());
-        catInfo.SetXmlProperty("genxml/url", c.CategoryUrl(sessionParams));
-        catInfo.SetXmlProperty("genxml/summary", c.Summary);
-        catInfo.SetXmlProperty("genxml/logourl", portalData.EngineUrlWithProtocol.Trim('/') + "/" +  c.LogoRelPath);
-        catList.AddListItem("categories", catInfo);
-    }
-    hbsDict.Add("categories", catList);
-
-    var appThemeDefault = new AppThemeLimpet(articleData.PortalId, "rocketcatalog.BusinessDirectory", "1.0", appTheme.Organisation);
 }
 
+@AddProcessData("resourcepath", "/DesktopModules/DNNrocket/api/App_LocalResources/")
+@AddProcessData("resourcepath", "/DesktopModules/DNNrocketModules/RocketCatalog/App_LocalResources/")
+@AddProcessData("resourcepath", "/DesktopModules/RocketThemes/" + portalCatalog.Organisation + "/" + portalCatalog.AppThemeAdminFolder + "/" + portalCatalog.AppThemeAdminVersion + "/resx/")
 @AddProcessData("resourcepath", "/DesktopModules/RocketThemes/" + appTheme.AppThemeFolder + "/" + appTheme.AppVersionFolder + "/resx/")
+@{ 
+    hbsDict.Add("resxlist", RenderRazorUtils.GetResxPaths(Processdata));
+}
 
 @if (portalCatalog.DebugMode)
 {<div class="w3-small">@DateTime.Now.ToString()</div>}
