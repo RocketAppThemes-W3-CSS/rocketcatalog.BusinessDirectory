@@ -57,36 +57,51 @@
         <div class="w3-row">
             <h5>Social Networks</h5>
         </div>
+        {{#when genxml.data.genxml.checkbox.youtubehide "eq" "true"}}
         <div class="w3-col m2 w3-padding">
-            <a href="" target="_blank">
+            <a href="{{genxml.data.genxml.checkbox.youtubelink}}" target="_blank">
                 <img style="width: 40px;" class="w3-circle w3-grey w3-grayscale-max" src="{{genxml.sessionparams.r.engineurl}}/DesktopModules/RocketThemes/RocketAppThemes-W3-CSS/rocketcatalog.BusinessDirectory/1.0/img/youtube.png" />
                 <span>YouTube</span>
             </a>
         </div>
+        {{/when}}
+
+        {{#when genxml.data.genxml.checkbox.linkedinhide "eq" "true"}}
         <div class="w3-col m2 w3-padding">
-            <a href="" target="_blank">
+            <a href="{{genxml.data.genxml.checkbox.linkedinlink}}" target="_blank">
                 <img style="width:40px;" class="w3-circle w3-grey w3-grayscale-max" src="{{genxml.sessionparams.r.engineurl}}/DesktopModules/RocketThemes/RocketAppThemes-W3-CSS/rocketcatalog.BusinessDirectory/1.0/img/linkedin.png" />
                 <span>LinkedIn</span>
             </a>
         </div>
+        {{/when}}
+
+        {{#when genxml.data.genxml.checkbox.instagramhide "eq" "true"}}
         <div class="w3-col m2 w3-padding">
-            <a href="" target="_blank">
+            <a href="{{genxml.data.genxml.checkbox.instagramlink}}" target="_blank">
                 <img style="width:40px;" class="w3-circle w3-grey w3-grayscale-max" src="{{genxml.sessionparams.r.engineurl}}/DesktopModules/RocketThemes/RocketAppThemes-W3-CSS/rocketcatalog.BusinessDirectory/1.0/img/instagram.png" />
                 <span>Instagram</span>
             </a>
         </div>
+        {{/when}}
+
+        {{#when genxml.data.genxml.checkbox.twitterhide "eq" "true"}}
         <div class="w3-col m2 w3-padding">
-            <a href="" target="_blank">
+            <a href="{{genxml.data.genxml.checkbox.twitterlink}}" target="_blank">
                 <img style="width:40px;" class="w3-circle w3-grey w3-grayscale-max" src="{{genxml.sessionparams.r.engineurl}}/DesktopModules/RocketThemes/RocketAppThemes-W3-CSS/rocketcatalog.BusinessDirectory/1.0/img/twitter.png" />
                 <span>Twitter</span>
             </a>
         </div>
+        {{/when}}
+
+        {{#when genxml.data.genxml.checkbox.facebookhide "eq" "true"}}
         <div class="w3-col m2 w3-padding">
-            <a href="" target="_blank">
+            <a href="{{genxml.data.genxml.checkbox.facebooklink}}" target="_blank">
                 <img style="width:40px;" class="w3-circle w3-grey w3-grayscale-max" src="{{genxml.sessionparams.r.engineurl}}/DesktopModules/RocketThemes/RocketAppThemes-W3-CSS/rocketcatalog.BusinessDirectory/1.0/img/facebook.png" />
                 <span>Facebook</span>
             </a>
         </div>
+        {{/when}}
+
     </div>
 
     <section class="detailslinks">

@@ -177,6 +177,102 @@
                     </div>
 
 
+                    <div onclick="$('#socialnettab').toggle();$('#socialnettabexpand').toggle();" class="w3-button w3-block w3-theme-l3 w3-left-align  w3-margin-top">
+                        @ResourceKey("Theme.socialnet")
+                        <span id="socialnettabexpand" class="material-icons w3-right" style="display:none;">
+                            unfold_more
+                        </span>
+                    </div>
+                    <div id="socialnettab" class='w3-row sectionname w3-border'>
+
+                        <div class="w3-display-container w3-padding">
+                            <div class="w3-row">
+                                <div class="w3-col m1" style="width:80px;">
+                                    <label>@ResourceKey("DNNrocket.hide")</label><br />
+                                    @CheckBox(info, "genxml/checkbox/youtubehide", "", " class='w3-check' ", true, false)
+                                </div>
+                                <div class="w3-col m2" style="">
+                                    <label>YouTube</label><br />
+                                    <img style="width:40px;" class="w3-circle w3-grey w3-grayscale-max" src="@(portalData.EngineUrlWithProtocol)/DesktopModules/RocketThemes/RocketAppThemes-W3-CSS/rocketcatalog.BusinessDirectory/1.0/img/youtube.png" />
+                                </div>
+                                <div class="w3-col m9">
+                                    <label>@ResourceKey("DNNrocket.url")</label>
+                                    @TextBox(info, "genxml/textbox/youtubelink", " class='w3-input w3-border' autocomplete='off'", "https://", false)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w3-display-container w3-padding">
+                            <div class="w3-row">
+                                <div class="w3-col m1" style="width:80px;">
+                                    <label>@ResourceKey("DNNrocket.hide")</label><br />
+                                    @CheckBox(info, "genxml/checkbox/linkedinhide", "", " class='w3-check' ", true, false)
+                                </div>
+                                <div class="w3-col m2" style="">
+                                    <label>LinkedIn</label><br />
+                                    <img style="width:40px;" class="w3-circle w3-grey w3-grayscale-max" src="@(portalData.EngineUrlWithProtocol)/DesktopModules/RocketThemes/RocketAppThemes-W3-CSS/rocketcatalog.BusinessDirectory/1.0/img/LinkedIn.png" />
+                                </div>
+                                <div class="w3-col m9">
+                                    <label>@ResourceKey("DNNrocket.url")</label>
+                                    @TextBox(info, "genxml/textbox/linkedinlink", " class='w3-input w3-border' autocomplete='off'", "https://", false)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w3-display-container w3-padding">
+                            <div class="w3-row">
+                                <div class="w3-col m1" style="width:80px;">
+                                    <label>@ResourceKey("DNNrocket.hide")</label><br />
+                                    @CheckBox(info, "genxml/checkbox/instagramhide", "", " class='w3-check' ", true, false)
+                                </div>
+                                <div class="w3-col m2" style="">
+                                    <label>Instagram</label><br />
+                                    <img style="width:40px;" class="w3-circle w3-grey w3-grayscale-max" src="@(portalData.EngineUrlWithProtocol)/DesktopModules/RocketThemes/RocketAppThemes-W3-CSS/rocketcatalog.BusinessDirectory/1.0/img/Instagram.png" />
+                                </div>
+                                <div class="w3-col m9">
+                                    <label>@ResourceKey("DNNrocket.url")</label>
+                                    @TextBox(info, "genxml/textbox/instagramlink", " class='w3-input w3-border' autocomplete='off'", "https://", false)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w3-display-container w3-padding">
+                            <div class="w3-row">
+                                <div class="w3-col m1" style="width:80px;">
+                                    <label>@ResourceKey("DNNrocket.hide")</label><br />
+                                    @CheckBox(info, "genxml/checkbox/twitterhide", "", " class='w3-check' ", true, false)
+                                </div>
+                                <div class="w3-col m2" style="">
+                                    <label>Twitter</label><br />
+                                    <img style="width:40px;" class="w3-circle w3-grey w3-grayscale-max" src="@(portalData.EngineUrlWithProtocol)/DesktopModules/RocketThemes/RocketAppThemes-W3-CSS/rocketcatalog.BusinessDirectory/1.0/img/twitter.png" />
+                                </div>
+                                <div class="w3-col m9">
+                                    <label>@ResourceKey("DNNrocket.url")</label>
+                                    @TextBox(info, "genxml/textbox/twitterlink", " class='w3-input w3-border' autocomplete='off'", "https://", false)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w3-display-container w3-padding">
+                            <div class="w3-row">
+                                <div class="w3-col m1" style="width:80px;">
+                                    <label>@ResourceKey("DNNrocket.hide")</label><br />
+                                    @CheckBox(info, "genxml/checkbox/facebookhide", "", " class='w3-check' ", true, false)
+                                </div>
+                                <div class="w3-col m2" style="">
+                                    <label>Facebook</label><br />
+                                    <img style="width:40px;" class="w3-circle w3-grey w3-grayscale-max" src="@(portalData.EngineUrlWithProtocol)/DesktopModules/RocketThemes/RocketAppThemes-W3-CSS/rocketcatalog.BusinessDirectory/1.0/img/facebook.png" />
+                                </div>
+                                <div class="w3-col m9">
+                                    <label>@ResourceKey("DNNrocket.url")</label>
+                                    @TextBox(info, "genxml/textbox/facebooklink", " class='w3-input w3-border' autocomplete='off'", "https://", false)
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
                 </div>
                 <div class="w3-third w3-padding-small">
 
