@@ -107,9 +107,25 @@
     <section class="detailslinks">
         <h3>Liens</h3>
         <div id="linklistcontainer">
-            <div class="">
-                <a href="https://www.audilab.fr/" target="'_blank'">Site Internet</a>
+            {{#each genxml.data.genxml.linklist.genxml}}
+
+            {{test @root "wtf"}}
+            <div>
+                LINK: {{@index}}  {{article @root "linkllisturl" @index "textbox.externallinkarticlelink" "textbox.anchorarticlelink"}}
             </div>
+            <div>{{article @root "name"}}</div>
+
+            {{#when checkbox.hidearticlelink "noteq" "true"}}
+            {{#when checkbox.blankarticlelink "eq" "true"}}
+            <a target="_blank" href="{{lookuplang @root "linklist" "textbox.externallinkarticlelink" @index}}#{{lookuplang @root "linklist" "textbox.anchorarticlelink" @index}}" class="w3-bar-item w3-button">{{lookuplang @root "linklist" "textbox.namearticlelink" @index}}</a>
+            {{/when}}
+            {{#when checkbox.blankarticlelink "noteq" "true"}}
+            <a href="{{lookuplang @root "linklist" "textbox.externallinkarticlelink" @index}}#{{lookuplang @root "linklist" "textbox.anchorarticlelink" @index}}" class="w3-bar-item w3-button">{{lookuplang @root "linklist" "textbox.namearticlelink" @index}}</a>
+            {{/when}}
+            {{/when}}
+
+            {{/each}}
+
         </div>
     </section>
 
