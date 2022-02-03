@@ -198,14 +198,8 @@
   <data name="orderspossible.Text" xml:space="preserve">
     <value>Fonctionnement et services propos&amp;#233;s</value>
   </data>
-  <data name="phone1.Text" xml:space="preserve">
-    <value>T&amp;#233;l&amp;#233;phone 1</value>
-  </data>
-  <data name="phone2.Text" xml:space="preserve">
-    <value>T&amp;#233;l&amp;#233;phone 2</value>
-  </data>
-  <data name="phone3.Text" xml:space="preserve">
-    <value>T&amp;#233;l&amp;#233;phone 3</value>
+  <data name="phone.Text" xml:space="preserve">
+    <value>T&amp;#233;l&amp;#233;phone</value>
   </data>
   <data name="postcode.Text" xml:space="preserve">
     <value>Code postal et ville</value>

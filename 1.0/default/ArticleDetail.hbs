@@ -1,35 +1,37 @@
 ﻿
 
 <div class="w3-row w3-animate-opacity">
-    {{#IsInCategory genxml.data.genxml.column.itemid "ref1"}}
-    <h1>You're in it.</h1>
-    {{else}}
-    <h1>You're NOT in it.</h1>
-    {{/IsInCategory}}
-
-    {{#HasProperty genxml.data.genxml.column.itemid "111"}}
-    <h1>You're in Property. </h1>
-    {{else}}
-    <h1>You're NOT in Property.</h1>
-    {{/HasProperty}}
 
     <h1>{{article this "name"}}</h1>
 
     <div class="w3-row w3-padding w3-margin-top w3-margin-bottom">{{article this "summary"}}</div>
 
     <div class="w3-row w3-padding">
-        <div class="w3-col m3" style="width:90px">
+        <div class="w3-col m1" style="width:90px">
             <span class="material-icons w3-jumbo">
                 schedule
             </span>
         </div>
-        <div class="w3-col m9">
-            <div>Mardi: 8h30/12h 14h/18h30 <br>Jeudi: 8h30/12 h 14h/18h30 <br>Vendredi: 8h30/12h30 <br>Samedi: 8h30/12h30</div>
-        </div>
-    </div>
+        <div class="w3-col m10">
 
-    <div class="w3-row w3-padding">
-        <div class="ordersitem"><i class="fas fa-check"></i>Ouvert au public</div>
+            <div class="w3-row w3-small w3-padding-small">
+                <div class="w3-col m2 w3-right-align" style="width:100px;">{{formatDateTime "2022-02-06" "dddd"}}:&nbsp;</div>
+                <div class="w3-col m10">{{genxml.data.genxml.textbox.open1-0}} - {{genxml.data.genxml.textbox.close1-0}} - {{genxml.data.genxml.textbox.open2-0}} - {{genxml.data.genxml.textbox.close2-0}}</div>
+                <div class="w3-col m2 w3-right-align" style="width:100px;">{{formatDateTime "2022-02-07" "dddd"}}:&nbsp;</div>
+                <div class="w3-col m10">{{genxml.data.genxml.textbox.open1-1}} - {{genxml.data.genxml.textbox.close1-1}} - {{genxml.data.genxml.textbox.open2-1}} - {{genxml.data.genxml.textbox.close2-1}}</div>
+                <div class="w3-col m2 w3-right-align" style="width:100px;">{{formatDateTime "2022-02-08" "dddd"}}:&nbsp;</div>
+                <div class="w3-col m10">{{genxml.data.genxml.textbox.open1-2}} - {{genxml.data.genxml.textbox.close1-2}} - {{genxml.data.genxml.textbox.open2-2}} - {{genxml.data.genxml.textbox.close2-2}}</div>
+                <div class="w3-col m2 w3-right-align" style="width:100px;">{{formatDateTime "2022-02-09" "dddd"}}:&nbsp;</div>
+                <div class="w3-col m10">{{genxml.data.genxml.textbox.open1-3}} - {{genxml.data.genxml.textbox.close1-3}} - {{genxml.data.genxml.textbox.open2-3}} - {{genxml.data.genxml.textbox.close2-3}}</div>
+                <div class="w3-col m2 w3-right-align" style="width:100px;">{{formatDateTime "2022-02-10" "dddd"}}:&nbsp;</div>
+                <div class="w3-col m10">{{genxml.data.genxml.textbox.open1-4}} - {{genxml.data.genxml.textbox.close1-4}} - {{genxml.data.genxml.textbox.open2-4}} - {{genxml.data.genxml.textbox.close2-4}}</div>
+                <div class="w3-col m2 w3-right-align" style="width:100px;">{{formatDateTime "2022-02-11" "dddd"}}:&nbsp;</div>
+                <div class="w3-col m10">{{genxml.data.genxml.textbox.open1-5}} - {{genxml.data.genxml.textbox.close1-5}} - {{genxml.data.genxml.textbox.open2-5}} - {{genxml.data.genxml.textbox.close2-5}}</div>
+                <div class="w3-col m2 w3-right-align" style="width:100px;">{{formatDateTime "2022-02-12" "dddd"}}:&nbsp;</div>
+                <div class="w3-col m10">{{genxml.data.genxml.textbox.open1-6}} - {{genxml.data.genxml.textbox.close1-6}} - {{genxml.data.genxml.textbox.open2-6}} - {{genxml.data.genxml.textbox.close2-6}}</div>
+            </div>
+
+        </div>
     </div>
 
     <div class="w3-row w3-padding">
@@ -40,27 +42,19 @@
             </div>
 
             <div class="w3-col m9">
-                <p>
+                <div>
                     <strong>{{article this "name"}}</strong><br />
                     {{genxml.data.genxml.textbox.address1}}<br />
                     {{genxml.data.genxml.textbox.address2}}<br />
                     {{genxml.data.genxml.textbox.address3}}<br />
                     {{genxml.data.genxml.textbox.address4}}<br />
-                </p>
-                <p>
-                </p><div>
-                    Tél. 05 65 49 72 58
                 </div>
                 <div>
-                    E-mail :
-                    <script type="text/javascript">document.write(String.fromCharCode(60, 97, 32, 104, 114, 101, 102, 61, 34, 109, 97, 105, 108, 116, 111, 58, 115, 97, 105, 110, 116, 46, 97, 102, 102, 114, 105, 113, 117, 101, 64, 97, 117, 100, 105, 108, 97, 98, 46, 102, 114, 34, 62, 115, 97, 105, 110, 116, 46, 97, 102, 102, 114, 105, 113, 117, 101, 64, 97, 117, 100, 105, 108, 97, 98, 46, 102, 114, 60, 47, 97, 62))</script><a href="mailto:saint.affrique@audilab.fr">saint.affrique@audilab.fr</a>
+                    {{resourcekey this "Theme.phone"}}: {{genxml.data.genxml.textbox.phone}}
                 </div>
                 <div>
-                    Préférence de contact : Par e-mail
+                    {{resourcekey this "Theme.email"}}: {{protectemail genxml.data.genxml.textbox.email genxml.catalogsettings.genxml.textbox.catalogname genxml.data.genxml.textbox.email}}
                 </div>
-
-                <br>
-                <p></p>
             </div>
         </div>
     </div>
@@ -137,10 +131,12 @@
         <div class="w3-half">
             <h3>{{resourcekey this "Theme.documents"}}</h3>
             <div id="linklistcontainer w3-padding">
-                {{#each genxml.data.genxml.documentlist.genxml}}
+                {{#each genxml.data.genxml.lang.genxml.documentlist.genxml}}
+                {{#when checkbox.documenthiddenarticledoc "noteq" "true"}}
                 <div class="w3-row">
                     <a target="_blank" href="{{article @root "docurl" @index}}" class="w3-bar-item w3-button">{{article @root "docname" @index}}</a>
                 </div>
+                {{/when}}
                 {{/each}}
             </div>
         </div>
