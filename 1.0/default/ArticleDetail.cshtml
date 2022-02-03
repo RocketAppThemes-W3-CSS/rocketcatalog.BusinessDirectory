@@ -37,6 +37,6 @@
 {<div class="w3-small">@DateTime.Now.ToString()</div>}
 
 <div class="w3-row">
-    <div onclick="window.history.back()" class="w3-button" style="float:right;" title="@articleData.Name">@ButtonText(ButtonTypes.back, sessionParams.CultureCode)</div>
+    <a href="@Model.SessionParamsData.PageUrl"  class="w3-button" style="float:right; text-decoration:none;">@ButtonText(ButtonTypes.back, sessionParams.CultureCode)</a>
     @RenderHandleBarsRC(hbsDict, appThemeDefault, "articledetail.hbs", remoteModule.ModuleRef, "")
 </div>

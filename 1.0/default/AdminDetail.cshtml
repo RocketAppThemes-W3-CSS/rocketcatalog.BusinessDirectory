@@ -272,6 +272,26 @@
 
                     </div>
 
+                    <div onclick="$('#seotab').toggle();$('#seotabexpand').toggle();" class="w3-button w3-block w3-theme-l3 w3-left-align w3-margin-top">
+                        @ResourceKey("DNNrocket.general")
+                        <span id="seotabexpand" class="material-icons w3-right" style="display:none;">
+                            unfold_more
+                        </span>
+                    </div>
+                    <div id="seotab" class='w3-row sectionname w3-border'>
+                        <div class='w3-row  w3-padding'>
+                            <label>@ResourceKey("RC.name")</label>&nbsp;@EditFlag(sessionParams)
+                            @TextBox(info, "genxml/textbox/seoname", " class='w3-input w3-border' autocomplete='off' maxlength='70' ", "", true, 0)
+                        </div>
+                        <div class=" w3-row w3-padding">
+                            <label>@ResourceKey("Theme.summary")</label>&nbsp;@EditFlag(sessionParams)
+                            @TextArea(info, "genxml/textbox/seodescription", " class='w3-input w3-border' rows='2' maxlength='250' autocomplete='off' ", "", true, 0)
+                        </div>
+                        <div class=" w3-row w3-padding">
+                            <label>@ResourceKey("Theme.tagwords")</label>&nbsp;@EditFlag(sessionParams)
+                            @TextArea(info, "genxml/textbox/seotagwords", " class='w3-input w3-border action_tageditor' rows='2' maxlength='250' autocomplete='off' ", "", true, 0)
+                        </div>
+                    </div>
 
                 </div>
                 <div class="w3-third w3-padding-small">
@@ -384,6 +404,15 @@
         {
             @:setTimeout(() => { moveMap(); }, 700);
         }
+
+        $('.action_tageditor').tagEditor({
+            delimiter: ', ', /* space and comma */
+            removeDuplicates: true,
+            forceLowercase: false,
+        });
+        $('.tag-editor').height(80)
+
+
     });
 
     function moveMap() {

@@ -252,4 +252,7 @@
   <data name="documents.Text" xml:space="preserve">
     <value>Documents</value>
   </data>
+  <data name="tagwords.Text" xml:space="preserve">
+    <value>Tag Words</value>
+  </data>
 </root>
