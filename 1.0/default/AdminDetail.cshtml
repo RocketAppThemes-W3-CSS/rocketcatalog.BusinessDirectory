@@ -13,10 +13,10 @@
     {
         info = articleData.Info;
     }
-    var portalCatalog = new PortalCatalogLimpet(articleData.PortalId, DNNrocketUtils.GetEditCulture());
-    var appThemeSystem = new AppThemeSystemLimpet(portalCatalog.SystemKey);
+    var portalCatalog = (PortalCatalogLimpet)Model.GetDataObject("portalcatalog");
+    var appThemeSystem = (AppThemeSystemLimpet)Model.GetDataObject("appthemesystem");
     var sessionParams = Model.SessionParamsData;
-    var portalData = new PortalLimpet(portalCatalog.PortalId);
+    var portalData = (PortalLimpet)Model.GetDataObject("portaldata");
     var remoteModule = (RemoteModule)Model.GetDataObject("remotemodule");
     var appThemeAdmin = (AppThemeLimpet)Model.GetDataObject("appthemeadmin");
 }
