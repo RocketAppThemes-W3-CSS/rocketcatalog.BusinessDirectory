@@ -73,7 +73,11 @@
                                     @TextBox(info, "genxml/textbox/phone", " class='w3-input w3-border' autocomplete='off' ", "", false, 0)
                                 </div>
                                 <div class='w3-row w3-padding'>
-                                    <label>@ResourceKey("Theme.website")</label>
+                                    <label>@ResourceKey("Theme.mobile")</label>
+                                    @TextBox(info, "genxml/textbox/mobile", " class='w3-input w3-border' autocomplete='off' ", "", false, 0)
+                                </div>
+                                <div class='w3-row w3-padding'>
+                                    <label>@ResourceKey("DNNrocket.website")</label>
                                     @TextBox(info, "genxml/textbox/website", " class='w3-input w3-border' autocomplete='off' ", "", false, 0)
                                 </div>
                             </div>
@@ -99,6 +103,11 @@
                                         @TextBox(info, "genxml/textbox/address4", " class='w3-input w3-border' autocomplete='off' ", "", false, 0)
                                     </div>
                                 </div>
+                                <div class='w3-row w3-padding'>
+                                    <label>@ResourceKey("Theme.preferedcontact")</label>
+                                    @RadioButtonList(info, "genxml/radio/preferedcontact", ResourceKey("Theme.preferedcontact","","Value").ToString(), ResourceKey("Theme.preferedcontact","","ValueText").ToString()," class='' ")
+                                </div>
+
                             </div>
                         </div>
                         <div class=" w3-row w3-padding">
@@ -273,7 +282,7 @@
                     </div>
 
                     <div onclick="$('#seotab').toggle();$('#seotabexpand').toggle();" class="w3-button w3-block w3-theme-l3 w3-left-align w3-margin-top">
-                        @ResourceKey("DNNrocket.general")
+                        SEO
                         <span id="seotabexpand" class="material-icons w3-right" style="display:none;">
                             unfold_more
                         </span>
